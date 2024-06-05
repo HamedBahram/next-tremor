@@ -80,6 +80,11 @@ const config: Config = {
             strong: colors.gray[50],
             inverted: colors.gray[950]
           }
+        },
+        tahiti: {
+          light: '#67e8f9',
+          DEFAULT: '#06b6d4',
+          dark: '#0e7490'
         }
       },
       boxShadow: {
@@ -136,7 +141,21 @@ const config: Config = {
     {
       pattern:
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/
-    }
+    },
+    ...['[#ffcc33]', 'tahiti'].flatMap(customColor => [
+      `bg-${customColor}`,
+      `border-${customColor}`,
+      `hover:bg-${customColor}`,
+      `hover:border-${customColor}`,
+      `hover:text-${customColor}`,
+      `fill-${customColor}`,
+      `ring-${customColor}`,
+      `stroke-${customColor}`,
+      `text-${customColor}`,
+      `ui-selected:bg-${customColor}`,
+      `ui-selected:border-${customColor}`,
+      `ui-selected:text-${customColor}`
+    ])
   ],
   plugins: [require('@headlessui/tailwindcss'), require('@tailwindcss/forms')]
 }
